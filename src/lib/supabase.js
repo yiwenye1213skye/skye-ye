@@ -1,10 +1,9 @@
 import { createClient } from '@supabase/supabase-js'
 
-// 这些环境变量将在你连接 Supabase 后自动填充
-// 如果你在本地开发且未连接，这些值可能为空，导致功能受限
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+// !!! IMPORTANT: PASTE YOUR ACTUAL ANON KEY FROM SUPABASE DASHBOARD HERE !!!
+const SUPABASE_URL = 'https://nppsoluxqsmntotxbetq.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wcHNvbHV4cXNtbnRvdHhiZXRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MjQxMzIsImV4cCI6MjA4MjMwMDEzMn0.XmTol0YMzAGRaVWpm1TkQycmLIsUm5Obm_InlwXCu4M'
 
-export const supabase = supabaseUrl && supabaseAnonKey 
-  ? createClient(supabaseUrl, supabaseAnonKey)
-  : null;
+console.log('Using Supabase Key:', SUPABASE_ANON_KEY.substring(0, 20) + '...'); // 加一行日志方便调试
+
+export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
